@@ -27,11 +27,12 @@ public class LoggerConfig {
         return properties.getProperty("logFormat", "%s [%s] %s:%s:%d %s");
     }
 
-    public String getOutput() {
-        return properties.getProperty("output", "console");
-    }
 
     public String getFileLoggerPath() {
         return properties.getProperty("outputPath", "logs.log");
+    }
+
+    public String getOutput(LogLevel level) {
+        return properties.getProperty(level.name(), "console");
     }
 }
